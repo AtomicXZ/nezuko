@@ -10,10 +10,10 @@ task:
       cpu: 15
       memory: 24G
     download_ccache_script:
-      - ./download_ccache
+      - bash download_ccache
     sync_script:
-      - ./sync
+      - bash sync
     build_script:
-      - ./build
+      - bash build
 #    upload_ccache_script:
-#      - ./upload_ccache
+#      - bash upload_ccache
