@@ -5,6 +5,6 @@ url=https://ghostmirror.hitesh920.workers.dev/ccache-nez.tar.gz
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf ccache-nez.tar.gz
+time tar xf ccache*.tar.gz
 echo "unzip done"
-find ccache-nez.tar.gz -delete
+find ccache*.tar.gz -delete
