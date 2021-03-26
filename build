@@ -12,10 +12,6 @@ ccache -M 20G
 ccache -o compression=true
 ccache -z
 
-up(){
-	curl --upload-file $1 https://transfer.sh/
-}
-
 make_metalava(){
 	mka api-stubs-docs
 	mka system-api-stubs-docs
@@ -23,12 +19,12 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j16
-	zip=$(up out/target/product/phoenix/*zip)
+	mka bacon -j15
+	zip=out/target/product/phoenix/*zip
 	echo " "
+	curl --upload-file $zip https://transfer.sh/
 	echo "$zip"
 }
 
 make_metalava
-make_rom &
-sleep 4800 && kill "$!"
+make_rom
