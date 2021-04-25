@@ -14,11 +14,6 @@ git config --global user.email achubadyal4@gmail.com
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
-rm -rf packages/apps/Settings
-git clone https://"$auth"@github.com/NezukoOS/sextings packages/apps/Settings
-cd packages/apps/Settings && git revert 534ca0694bea1c3b997808793d23e4a5adba6d0f --no-edit && cd ../../..
-git clone --depth=1 https://github.com/NezukoOS/packages_apps_Settings_DescendantHealth.git packages/apps/Settings/DescendantHealth
-git clone https://github.com/AtomicXZ/device_xiaomi_phoenix -b nezuko device/xiaomi/phoenix
-git clone https://github.com/AtomicXZ/kernel_xiaomi_phoenix --depth=1 -b Q kernel/xiaomi/phoenix
-git clone https://"$auth"@github.com/AtomicXZ/vendor vendor/xiaomi
-rm -rf vendor/aosp/charger
+git clone https://github.com/AtomicXZ/device_xiaomi_phoenix -b aosp device/xiaomi/phoenix
+git clone https://github.com/AtomicXZ/android_kernel_xiaomi_phoenix --depth=1 -b R kernel/xiaomi/phoenix
+git clone https://github.com/AtomicXZ/vendor_xiaomi_phoenix -b eleven vendor/xiaomi/phoenix
